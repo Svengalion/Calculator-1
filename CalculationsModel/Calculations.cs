@@ -11,12 +11,15 @@ namespace CalculationsModel
         public string Operation { get; set; } = "";
         public string Result { get; private set; } = "";
 
+        private bool isAtomar;
+
         public Calculations() {}
         public Calculations(string firstOperand, string secondOperand, string operation) 
         {
-            CheckOperand(firstOperand);
-            CheckOperand(secondOperand);
             CheckOperator(operation);
+            CheckOperand(firstOperand);
+            if (!isAtomar) CheckOperand(secondOperand);
+
             FirstOperand = firstOperand;
             SecondOperand = secondOperand;
             Operation = operation;
@@ -24,9 +27,9 @@ namespace CalculationsModel
 
         protected virtual void Calculate()
         {
-            CheckOperand(FirstOperand);
-            CheckOperand(SecondOperand);
             CheckOperator(Operation);
+            CheckOperand(FirstOperand);
+            if (!isAtomar) CheckOperand(SecondOperand);
 
             try
             {
@@ -49,6 +52,15 @@ namespace CalculationsModel
                         }
                         Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
                         break;
+                    case "sqrt":
+                        var firstOperand = Convert.ToDouble(FirstOperand);
+                        if (firstOperand < 0)
+                        {
+                            Result = "Operand is negative";
+                            throw new ArgumentException("Operand is negative");
+                        }
+                        Result = Math.Sqrt(firstOperand).ToString();
+                        break;
                 }
             }
             catch
@@ -67,6 +79,10 @@ namespace CalculationsModel
                 case "-":
                 case "*":
                 case "/":
+                    isAtomar = false;
+                    break;
+                case "sqrt":
+                    isAtomar = true;
                     break;
                 default:
                     Result = "Operation error";

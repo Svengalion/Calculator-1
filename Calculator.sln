@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculationsModel", "CalculationsModel\CalculationsModel.csproj", "{40D114F6-0FCF-4B4B-9585-756C90D226D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculationsModel", "CalculationsModel\CalculationsModel.csproj", "{40D114F6-0FCF-4B4B-9585-756C90D226D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{CD14AAFD-EBD9-4D88-820A-291621D882F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{D20902CD-7FB6-4F50-B402-5E84202DA940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{BC5CCA8B-F9CC-4DEB-993F-A7F6288A46FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{E33A8CEE-EA6E-4892-8D1D-79F9B546C0F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Wpf", "Calculator.Wpf\Calculator.Wpf.csproj", "{6CABD198-873C-48C1-BFB3-59C2809FB21B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,22 @@ Global
 		{40D114F6-0FCF-4B4B-9585-756C90D226D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40D114F6-0FCF-4B4B-9585-756C90D226D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40D114F6-0FCF-4B4B-9585-756C90D226D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5CCA8B-F9CC-4DEB-993F-A7F6288A46FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5CCA8B-F9CC-4DEB-993F-A7F6288A46FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5CCA8B-F9CC-4DEB-993F-A7F6288A46FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5CCA8B-F9CC-4DEB-993F-A7F6288A46FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CABD198-873C-48C1-BFB3-59C2809FB21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CABD198-873C-48C1-BFB3-59C2809FB21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CABD198-873C-48C1-BFB3-59C2809FB21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CABD198-873C-48C1-BFB3-59C2809FB21B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{40D114F6-0FCF-4B4B-9585-756C90D226D5} = {CD14AAFD-EBD9-4D88-820A-291621D882F3}
+		{BC5CCA8B-F9CC-4DEB-993F-A7F6288A46FB} = {D20902CD-7FB6-4F50-B402-5E84202DA940}
+		{6CABD198-873C-48C1-BFB3-59C2809FB21B} = {E33A8CEE-EA6E-4892-8D1D-79F9B546C0F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2055FE7-88C1-462E-A815-9454084C061D}
