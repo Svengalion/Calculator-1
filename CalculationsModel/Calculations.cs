@@ -52,7 +52,7 @@ namespace CalculationsModel
                         }
                         Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
                         break;
-                    case "sqrt":
+                    case "√":
                         var firstOperand = Convert.ToDouble(FirstOperand);
                         if (firstOperand < 0)
                         {

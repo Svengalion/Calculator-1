@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        string display = "";
+        string display = "0";
         public string Display
         {
             get => display;
@@ -16,5 +17,7 @@ namespace ViewModels
                 OnPropertyChanged("Display");
             }
         }
+
+        public string Dot => CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
     }
 }
