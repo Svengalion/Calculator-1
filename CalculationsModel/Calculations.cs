@@ -11,14 +11,14 @@ namespace CalculationsModel
         public string Operation { get; set; } = "";
         public string Result { get; private set; } = "";
 
-        private bool isAtomar;
+        public bool IsAtomar { get; private set; } 
 
         public Calculations() {}
         public Calculations(string firstOperand, string secondOperand, string operation) 
         {
             CheckOperator(operation);
             CheckOperand(firstOperand);
-            if (!isAtomar) CheckOperand(secondOperand);
+            if (!IsAtomar) CheckOperand(secondOperand);
 
             FirstOperand = firstOperand;
             SecondOperand = secondOperand;
@@ -29,7 +29,7 @@ namespace CalculationsModel
         {
             CheckOperator(Operation);
             CheckOperand(FirstOperand);
-            if (!isAtomar) CheckOperand(SecondOperand);
+            if (!IsAtomar) CheckOperand(SecondOperand);
 
             try
             {
@@ -79,10 +79,10 @@ namespace CalculationsModel
                 case "-":
                 case "*":
                 case "/":
-                    isAtomar = false;
+                    IsAtomar = false;
                     break;
-                case "sqrt":
-                    isAtomar = true;
+                case "√":
+                    IsAtomar = true;
                     break;
                 default:
                     Result = "Operation error";
