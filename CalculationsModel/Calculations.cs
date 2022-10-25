@@ -11,57 +11,61 @@ namespace CalculationsModel
         public string Operation { get; set; } = "";
         public string Result { get; private set; } = "";
 
-        private bool isAtomar;
+        public bool IsAtomar { get; private set; } 
 
         public Calculations() {}
         public Calculations(string firstOperand, string secondOperand, string operation) 
         {
             CheckOperator(operation);
             CheckOperand(firstOperand);
-            if (!isAtomar) CheckOperand(secondOperand);
+            if (!IsAtomar) CheckOperand(secondOperand);
 
             FirstOperand = firstOperand;
             SecondOperand = secondOperand;
             Operation = operation;
         }
 
-        protected virtual void Calculate()
+        public virtual void Calculate()
         {
             CheckOperator(Operation);
             CheckOperand(FirstOperand);
-            if (!isAtomar) CheckOperand(SecondOperand);
+            if (!IsAtomar) CheckOperand(SecondOperand);
 
             try
             {
-                switch (Operation)
+                checked
                 {
-                    case "+":
-                        Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
-                        break;
-                    case "-":
-                        Result = (Convert.ToDouble(FirstOperand) - Convert.ToDouble(SecondOperand)).ToString();
-                        break;
-                    case "*":
-                        Result = (Convert.ToDouble(FirstOperand) * Convert.ToDouble(SecondOperand)).ToString();
-                        break;
-                    case "/":
-                        if (SecondOperand == "0")
-                        {
-                            Result = "Zero devision error";
-                            throw new ArgumentException("Zero devision error");
-                        }
-                        Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
-                        break;
-                    case "√":
-                        var firstOperand = Convert.ToDouble(FirstOperand);
-                        if (firstOperand < 0)
-                        {
-                            Result = "Operand is negative";
-                            throw new ArgumentException("Operand is negative");
-                        }
-                        Result = Math.Sqrt(firstOperand).ToString();
-                        break;
+                    switch (Operation)
+                    {
+                        case "+":
+                            Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
+                            break;
+                        case "-":
+                            Result = (Convert.ToDouble(FirstOperand) - Convert.ToDouble(SecondOperand)).ToString();
+                            break;
+                        case "*":
+                            Result = (Convert.ToDouble(FirstOperand) * Convert.ToDouble(SecondOperand)).ToString();
+                            break;
+                        case "/":
+                            if (SecondOperand == "0")
+                            {
+                                Result = "Zero devision error";
+                                throw new DivideByZeroException("Zero devision error");
+                            }
+                            Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
+                            break;
+                        case "√":
+                            var firstOperand = Convert.ToDouble(FirstOperand);
+                            if (firstOperand < 0)
+                            {
+                                Result = "Operand is negative";
+                                throw new ArgumentException("Operand is negative");
+                            }
+                            Result = Math.Sqrt(firstOperand).ToString();
+                            break;
+                    }
                 }
+                
             }
             catch
             {
@@ -79,10 +83,10 @@ namespace CalculationsModel
                 case "-":
                 case "*":
                 case "/":
-                    isAtomar = false;
+                    IsAtomar = false;
                     break;
-                case "sqrt":
-                    isAtomar = true;
+                case "√":
+                    IsAtomar = true;
                     break;
                 default:
                     Result = "Operation error";

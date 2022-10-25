@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Globalization;
+using ViewModels;
 namespace Calculator.Wpf
 {
     /// <summary>
@@ -24,6 +25,8 @@ namespace Calculator.Wpf
         {
             
             InitializeComponent();
+            DataContext = new MainViewModel(new ErrorHundler());
+            
         }
     }
 }
