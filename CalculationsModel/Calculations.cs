@@ -52,7 +52,7 @@ namespace CalculationsModel
                                 Result = "Zero devision error";
                                 throw new DivideByZeroException("Zero devision error");
                             }
-                            Result = (Convert.ToDouble(FirstOperand) + Convert.ToDouble(SecondOperand)).ToString();
+                            Result = (Convert.ToDouble(FirstOperand) / Convert.ToDouble(SecondOperand)).ToString();
                             break;
                         case "√":
                             var firstOperand = Convert.ToDouble(FirstOperand);

@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="3" Background="AntiqueWhite"
             Text="{Binding Info, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0,4,0" MinWidth="260" />
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Background="AntiqueWhite"
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Background="AntiqueWhite" 
             Text="{Binding Display, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4,0,4,0" MinWidth="260" />
         <Button Content="7" Grid.Row="2" Style="{StaticResource DigitBtn}"
                 Command="{Binding DigitPress}" CommandParameter="7"/>

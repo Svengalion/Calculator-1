@@ -14,13 +14,19 @@ namespace ViewModels
         public string Display
         {
             get => display;
+
             set
             {
+                if (value.Length>18)
+                {
+                    value = value.Remove(18);
+                }
                 display = value;
                 OnPropertyChanged("Display");
                 BackSpace.RaiseCanExecuteChanged();
                 DotPress.RaiseCanExecuteChanged();
             }
+
         }
 
         void SetInfo()
