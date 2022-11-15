@@ -7,16 +7,15 @@ namespace DataModels
 {
     public class DataManager
     {
-        public IAutarizationRep AutarizationRep { get; }
+        public IAuthorizationRep AutoriationRep { get; }
+        public IUserRep UserRep { get; }
+        public IHistoryRep HistoryRep { get; }
 
-        public DataManager(IUserRep userRep, IAutarizationRep autarizationRep, IHistoryRep historyRep)
+        public DataManager(IUserRep userRep, IAuthorizationRep autarizationRep, IHistoryRep historyRep)
         {
-            AutarizationRep = autarizationRep;
+            AutoriationRep = autarizationRep;
             UserRep = userRep;
             HistoryRep = historyRep;
         }
-
-        public IUserRep UserRep { get; }
-        public IHistoryRep HistoryRep { get; }
     }
 }

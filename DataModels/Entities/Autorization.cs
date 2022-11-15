@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataModels.Entities
 {
-    public class Autorization
+    public class Authorization
     {
         
         public Guid UserId { get; set; }
@@ -15,11 +15,5 @@ namespace DataModels.Entities
 
         public bool IsConfirmed { get; set; }
         public bool RememberMe { get; set; }
-
-
-        public override string ToString()
-        {
-            return UserId + ";" + Password + ";" + Email + ";" + IsConfirmed + ";" + RememberMe;
-        }
     }
 }

@@ -14,11 +14,6 @@ namespace DataModels.Entities
         public Guid Id { get; set; }
         
         public DateTime LastTime { get; set; }
-
-        public override string ToString()
-        {
-            return Id.ToString()+ ";"+ LastTime.ToString()+";";
-        }
     }
 
 

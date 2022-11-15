@@ -7,8 +7,8 @@ namespace DataModels.Entities
     public class User : EntityBase
     {
         public string Nick { get; set; } = null!;
-        public Guid AutorizationId { get; set; }
-        public Autorization Autorization {get;set;}
+        public Guid AuthorizationId { get; set; }
+        public Authorization Authorization {get;set;}
 
         public IList<History> Histories { get; set; } = new List<History>();
 
@@ -19,11 +19,5 @@ namespace DataModels.Entities
             Nick = "Гость",
             Id = GuidOne
         };
-
-
-        public override string ToString()
-        {
-            return base.ToString()+Nick+";"+ AutorizationId.ToString();
-        }
     }
 }

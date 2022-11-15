@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Linq;
+using System.Threading.Tasks;
 namespace DataModels.Repozitories
 {
     public interface IRepozitory<TEntity> where TEntity: class
     {
-        TEntity GetItemById(Guid id);
-        void Save(TEntity item);
+        Task<TEntity > GetItemByIdAsync(Guid id);
+        Task UpdateAsync (TEntity item);
 
-        void Delete(TEntity item);
+        Task  DeleteAsync(TEntity item);
 
     }
 }

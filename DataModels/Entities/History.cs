@@ -12,10 +12,5 @@ namespace DataModels.Entities
         public Guid UserId { get; set; }
 
         public User User { get; set; } = null!;
-
-        public override string ToString()
-        {
-            return base.ToString() + Calculations + ";" + UserId.ToString();
-        }
     }
 }

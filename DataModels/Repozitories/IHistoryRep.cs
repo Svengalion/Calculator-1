@@ -8,7 +8,7 @@ namespace DataModels.Repozitories
 {
     public interface IHistoryRep:IRepozitory<History>
     {
-        IQueryable <History> Items { get; }
+        IQueryable <History> Histories { get; }
 
       
 

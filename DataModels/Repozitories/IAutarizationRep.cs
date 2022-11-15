@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataModels.Repozitories
 {
-    public interface IAutarizationRep:IRepozitory<Autorization>
+    public interface IAuthorizationRep:IRepozitory<Authorization>
     {
         
 
