@@ -8,7 +8,7 @@ namespace ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-         Calculations model = new Calculations();
+        private Calculations model = new Calculations();
         
         string display = "0";
         public string Display

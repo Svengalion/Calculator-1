@@ -14,7 +14,7 @@ namespace DataModels.DataProviders.EFs.Sqlite.Tests
         public void SqliteConnectionTest()
         {
             DbContextSqlite context = new DbContextSqlite();
-            Assert.IsTrue(File.Exists(@"C:\Users\MordovetsTA\source\repos\Calculator\Data\Sqlite.db"));
+            Assert.IsTrue(File.Exists(@"C:\_Data\Sqlite.db"));
         }
     }
 }

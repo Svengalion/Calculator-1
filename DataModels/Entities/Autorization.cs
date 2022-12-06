@@ -6,7 +6,6 @@ namespace DataModels.Entities
 {
     public class Authorization
     {
-        
         public Guid UserId { get; set; }
         public User User { get; set; } = null!;
         public string Password { get; set; } = null!;

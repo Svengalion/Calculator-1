@@ -15,10 +15,8 @@ namespace DataModels.DataProviders.EFs.Core.Repozitories
         {
             get
             {
-                using (var context = new DatabaseContext())
-                {
-                    return context.Users;
-                }
+                using var context = new DatabaseContext();
+                return context.Users;
             }
         }
 

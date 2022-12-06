@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Sqlite;
 
 namespace DataModels.DataProviders.EFs.Sqlite
 {
-    public class DbContextSqlite : DatabaseContext
+    public class SqliteDbContext : DatabaseContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlite(@"Data Source = C:\Users\MordovetsTA\source\repos\Calculator\Data\Sqlite.db");
+            builder.UseSqlite(@"Data Source = C:\_Data\Sqlite.db");
         }
     }
 }

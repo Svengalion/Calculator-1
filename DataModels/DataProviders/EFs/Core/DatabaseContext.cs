@@ -7,11 +7,13 @@ namespace DataModels.DataProviders.EFs.Core
 {
     public  class DatabaseContext:DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Authorization> Authorizations { get; set; }
-        public DbSet<History> Histories { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Authorization> Authorizations { get; set; } = null!;
+        public DbSet<History> Histories { get; set; } = null!;
 
-        public DatabaseContext() => Database.EnsureCreated();
-        
+        protected override void OnModelCreating(ModelBuilder mb)
+        {
+            mb.Entity<Authorization>().HasKey(a => a.UserId);
+        }
     }
 }
