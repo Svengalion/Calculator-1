@@ -7,7 +7,7 @@ namespace DataModels.Repozitories
 {
     public interface IRepozitory<TEntity> where TEntity: class
     {
-        Task<TEntity > GetItemByIdAsync(Guid id);
+        Task<TEntity?> GetItemByIdAsync(Guid id);
         Task UpdateAsync (TEntity item);
 
         Task  DeleteAsync(TEntity item);

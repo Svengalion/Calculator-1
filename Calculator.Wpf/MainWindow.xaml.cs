@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Globalization;
 using ViewModels;
+using Calculator.Wpf.Pages;
+
 namespace Calculator.Wpf
 {
     /// <summary>
@@ -23,10 +25,18 @@ namespace Calculator.Wpf
     {
         public MainWindow()
         {
-            
             InitializeComponent();
-            DataContext = new MainViewModel(new ErrorHundler());
-            
+            OpenPage(WorkPage.Main);
+        }
+
+        private void OpenPage(WorkPage page)
+        {
+            switch (page)
+            {
+                case WorkPage.Main:
+                    MainFrame.Navigate(new MainPage());
+                    break;
+            }
         }
     }
 }

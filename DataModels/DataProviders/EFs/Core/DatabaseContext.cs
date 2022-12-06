@@ -14,6 +14,7 @@ namespace DataModels.DataProviders.EFs.Core
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<Authorization>().HasKey(a => a.UserId);
+            mb.Entity<User>().HasData(User.Gust);
         }
     }
 }

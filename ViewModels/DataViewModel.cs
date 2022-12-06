@@ -7,6 +7,6 @@ namespace ViewModels
 {
     public class DataViewModel:ViewModelBase
     {
-        private DataManager model = DataManager.Get(DataProvider.SqLite);
+        public DataManager model = DataManager.Get(DataProvider.SqLite);
     }
 }

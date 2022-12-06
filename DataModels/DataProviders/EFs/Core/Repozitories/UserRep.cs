@@ -11,47 +11,33 @@ namespace DataModels.DataProviders.EFs.Core.Repozitories
 {
     public  class UserRep : IUserRep
     {
-        public IQueryable<User> Users
-        {
-            get
-            {
-                using var context = new DatabaseContext();
-                return context.Users;
-            }
-        }
+        private readonly DatabaseContext context;
+
+        public UserRep(DatabaseContext context) => this.context = context;
+
+        public IQueryable<User> Users=> context.Users;
 
         public Task DeleteAsync(User item) => Task.Run(() =>
          {
-             using (var context = new DatabaseContext())
+             if (context.Users.Contains(item))
              {
-                 if (context.Users.Contains(item))
-                 {
-                     context.Users.Remove(item);
-                     context.SaveChanges();
-                 }
+                 context.Users.Remove(item);
+                 context.SaveChanges();
              }
          });
 
-        public async Task<User> GetItemByIdAsync(Guid id)
-        {
-            using (var context = new DatabaseContext())
-            {
-                return await context.Users.FindAsync(id);
-            }
-        }
+        public async Task<User?> GetItemByIdAsync(Guid id)=>
+            await context.Users.FirstOrDefaultAsync(u => u.Id == id);
 
         public async Task UpdateAsync(User item)
         {
-            using (var context = new DatabaseContext())
+            var old = await context.Users.FindAsync(item.Id);
+            if (old != null)
             {
-                var old= await context.Users.FindAsync(item.Id);
-                if(old!=null)
-                {
-                    context.Users.Remove(old);
-                }
-                context.Users.Add(item);
-                await context.SaveChangesAsync();
+                context.Users.Remove(old);
             }
+            context.Users.Add(item);
+            await context.SaveChangesAsync();
         }
     }
 }

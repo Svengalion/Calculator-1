@@ -11,18 +11,20 @@ namespace DataModels.DataProviders.EFs.Core.Repozitories
 {
     public  class HistoryRep : IHistoryRep
     {
-        public IQueryable<History> Histories
-        {
-            get
-            {
-                using var context = new DatabaseContext();
-                return context.Histories.OrderBy(h => h.LastTime);
-            }
-        }
+        private readonly DatabaseContext context;
+        public HistoryRep(DatabaseContext context) => this.context = context;
+        public IQueryable<History> Histories => context.Histories;
+        //public IQueryable<History> Histories
+        //{
+        //    get
+        //    {
+        //        using var context = new DatabaseContext();
+        //        return context.Histories.OrderBy(h => h.LastTime);
+        //    }
+        //}
 
         public Task DeleteAsync(History item) => Task.Run(() =>
          {
-             using var context = new DatabaseContext();
              if (context.Histories.Contains(item))
              {
                  context.Histories.Remove(item);
@@ -30,15 +32,13 @@ namespace DataModels.DataProviders.EFs.Core.Repozitories
              }
          });
 
-        public async Task<History> GetItemByIdAsync(Guid id)
+        public async Task<History?> GetItemByIdAsync(Guid id)
         {
-            using var context = new DatabaseContext();
-            return await context.Histories.FindAsync(id);
+            return await context.Histories.FirstOrDefaultAsync(h => h.Id == id);
         }
 
         public async Task UpdateAsync(History item)
         {
-            using var context = new DatabaseContext();
             var old = await context.Histories.FindAsync(item.Id);
             if (old != null)
             {

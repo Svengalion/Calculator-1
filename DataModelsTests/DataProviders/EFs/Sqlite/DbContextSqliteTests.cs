@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using DataModels.Entities;
 
 namespace DataModels.DataProviders.EFs.Sqlite.Tests
 {
@@ -13,8 +14,9 @@ namespace DataModels.DataProviders.EFs.Sqlite.Tests
         [TestMethod()]
         public void SqliteConnectionTest()
         {
-            DbContextSqlite context = new DbContextSqlite();
-            Assert.IsTrue(File.Exists(@"C:\_Data\Sqlite.db"));
+            var context = DataManager.Get(DataProvider.SqLite);
+            //Assert.IsTrue(File.Exists(@"C:\_Data\Sqlite.db"));
+            Assert.IsTrue(context.UserRep.GetItemByIdAsync(User.GustGuid).Result != null);
         }
     }
 }

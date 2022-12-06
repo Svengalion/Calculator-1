@@ -10,6 +10,7 @@ namespace DataModels
 {
     public class DataManager
     {
+        //public DbContext? Context { get; private set; }
         public IAuthorizationRep AutoriationRep { get; }
         public IUserRep UserRep { get; }
         public IHistoryRep HistoryRep { get; }
@@ -32,7 +33,7 @@ namespace DataModels
                 case DataProvider.SqLite:
                     var context = new SqliteDbContext();
                     context.Database.EnsureCreated();
-                    return new DataManager(new UserRep(), new AuthorizationRep(), new HistoryRep());
+                    return new DataManager(new UserRep(context), new AuthorizationRep(context), new HistoryRep(context));
             }
         }
     }
