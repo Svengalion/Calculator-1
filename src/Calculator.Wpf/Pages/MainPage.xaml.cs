@@ -51,5 +51,10 @@ namespace Calculator.Wpf.Pages
         {
             win.MainFrame.Navigate(MainWindow.Login(win));
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
